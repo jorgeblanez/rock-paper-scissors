@@ -51,41 +51,50 @@ function getPlayerChoice(){
 
 function playRound(playerChoice,computerChoice){
     let result;
+    console.log("playerChoice: " + playerChoice);
+    console.log("computerChoice: " + computerChoice);
     if (playerChoice === computerChoice){
-        return alert ("Draw! Try again")
+        return alert ("Draw! Try again");
     }
 
     if (playerChoice === "rock" && computerChoice ==="scissors"){
         playerCount++;
-        result = "You won! Rock beats Scissors!"
+        result = "You won! Rock beats Scissors!";
     }
     else{
         computerCount++;
-        result = "You lost! Paper beats Rock!"
+        result = "You lost! Paper beats Rock!";
     }
     
     if (playerChoice === "paper" && computerChoice ==="rock"){
         playerCount++;
-        result = "You won! Paper beats Rock!"
+        result = "You won! Paper beats Rock!";
     }
     else{
         computerCount++;
-        result = "You lost! Scissors beats Paper!"
+        result = "You lost! Scissors beats Paper!";
     }
 
     if (playerChoice === "scissors" && computerChoice ==="paper"){
         playerCount++;
-        result = "You won! Scissors beats Paper!"
+        result = "You won! Scissors beats Paper!";
     }
     else{
         computerCount++;
-        result = "You lost! Rock beats Scissors!"
+        result = "You lost! Rock beats Scissors!";
     }
     return alert(result);
 
 }
 
+
 let playerCount = 0;
 let computerCount = 0;
 
+let keepGoing = true;
+while (keepGoing){
+    game();
+    let playAgain = alert("Play again? Yes or No?")
+    if (toLowerCase.playAgain === "no") keepGoing = false;
+}
 
