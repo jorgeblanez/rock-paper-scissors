@@ -1,7 +1,8 @@
 //Create function getComputerChoice that will randomly return text "rock", 
 //"paper" or "scissors"
 function getComputerChoice(){
-    let choice = Math.floor(Math.random *3);
+    let choice = Math.floor(Math.random() *3);
+    console.log(choice);
     switch (choice) {
         case 0:
             return "rock";
@@ -24,6 +25,9 @@ function game(){
     let keepGoing =true;
     while (keepGoing){
         playRound(getPlayerChoice(),getComputerChoice());
+        console.log("playerCount: " + playerCount);
+        console.log("computerCount: " + computerCount)
+
         if (playerCount === 3 || computerCount === 3) keepGoing =false;
     }
     if (playerCount > computerCount) return alert("You won! :D")
@@ -36,7 +40,7 @@ function getPlayerChoice(){
     keepGoing = true
     while(keepGoing){
         let playerChoice = prompt("Type in your choice between Rock, Paper or Scissors")
-
+        playerChoice = playerChoice.toLowerCase();
         if (playerChoice === "rock" || 
             playerChoice === "paper" || 
             playerChoice === "scissors") return playerChoice
@@ -61,21 +65,19 @@ function playRound(playerChoice,computerChoice){
         playerCount++;
         result = "You won! Rock beats Scissors!";
     }
-    else{
+    else if (playerChoice === "rock" && computerChoice ==="paper"){
         computerCount++;
         result = "You lost! Paper beats Rock!";
     }
-    
-    if (playerChoice === "paper" && computerChoice ==="rock"){
+    else if (playerChoice === "paper" && computerChoice ==="rock"){
         playerCount++;
         result = "You won! Paper beats Rock!";
     }
-    else{
+    else if (playerChoice === "paper" && computerChoice ==="scissors"){
         computerCount++;
         result = "You lost! Scissors beats Paper!";
     }
-
-    if (playerChoice === "scissors" && computerChoice ==="paper"){
+    else if (playerChoice === "scissors" && computerChoice ==="paper"){
         playerCount++;
         result = "You won! Scissors beats Paper!";
     }
@@ -94,7 +96,8 @@ let computerCount = 0;
 let keepGoing = true;
 while (keepGoing){
     game();
-    let playAgain = alert("Play again? Yes or No?")
-    if (toLowerCase.playAgain === "no") keepGoing = false;
+    let playAgain = prompt("Play again? Yes or No?");
+    console.log(playAgain);
+    if (playAgain.toLowerCase() === "no") keepGoing = false;
 }
 
