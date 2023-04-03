@@ -1,7 +1,7 @@
 //Create function getComputerChoice that will randomly return text "rock", 
 //"paper" or "scissors"
 function getComputerChoice(){
-    let choice = Math.floor(Math.random() *3);
+    let choice = Math.floor(Math.random() * 3);
     console.log(choice);
     switch (choice) {
         case 0:
@@ -22,8 +22,8 @@ function getComputerChoice(){
 function game(){
     playerCount = 0;
     computerCount = 0;
-    let keepGoing =true;
-    while (keepGoing){
+    /*let keepGoing =true;
+    /*while (keepGoing){
         playRound(getPlayerChoice(),getComputerChoice());
         console.log("playerCount: " + playerCount);
         console.log("computerCount: " + computerCount)
@@ -31,22 +31,14 @@ function game(){
         if (playerCount === 3 || computerCount === 3) keepGoing =false;
     }
     if (playerCount > computerCount) return alert("You won! :D")
-    else return alert("You lost! :/")
+    else return alert("You lost! :/")*/
+
 }
 //Get player selection, which should be case insensitive, and validate if the
 //input was correct. Use "prompt()"
 
 function getPlayerChoice(){
-    keepGoing = true
-    while(keepGoing){
-        let playerChoice = prompt("Type in your choice between Rock, Paper or Scissors")
-        playerChoice = playerChoice.toLowerCase();
-        if (playerChoice === "rock" || 
-            playerChoice === "paper" || 
-            playerChoice === "scissors") return playerChoice
-        else alert("Invalid option! Try again!")
-    }
-   
+
 }
 
 //Create function to play a round of Rock Paper Scissors, 
@@ -88,16 +80,3 @@ function playRound(playerChoice,computerChoice){
     return alert(result);
 
 }
-
-
-let playerCount = 0;
-let computerCount = 0;
-
-let keepGoing = true;
-while (keepGoing){
-    game();
-    let playAgain = prompt("Play again? Yes or No?");
-    console.log(playAgain);
-    if (playAgain.toLowerCase() === "no") keepGoing = false;
-}
-
