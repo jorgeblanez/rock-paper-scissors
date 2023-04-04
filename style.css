@@ -1,3 +1,8 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    margin:0;
+}
+
 img{
     filter: invert(1);
     height: 200px;
@@ -15,7 +20,10 @@ button{
 #paper,
 #scissors{
     margin: 6px;
-    background-color: navy;
+    transition: all 0.2s;
+        -webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+    background-color: #457B9D;
     filter: grayscale(50%);
         -webkit-filter: grayscale(50%);
         -moz-filter: grayscale(50%);
@@ -30,4 +38,40 @@ button{
     transform: scale(1.05);
         -webkit-transform: scale(1.05);
         -moz-transform: scale(1.05);
+}
+
+#header,
+#explanation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#header{
+    flex-direction: column;
+    background-color: #1D3557;
+    color: #F1FAEE;
+    padding: 20px;
+}
+
+#title{
+    font-size: 52px;
+    font-weight: bolder;
+}
+
+#explanation{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#scores{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#game{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
