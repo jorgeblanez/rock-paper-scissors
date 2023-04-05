@@ -20,6 +20,7 @@ button{
 #paper,
 #scissors{
     margin: 6px;
+    border-radius: 10%;
     transition: all 0.2s;
         -webkit-transition: all 0.2s;
         -moz-transition: all 0.2s;
@@ -51,7 +52,7 @@ button{
     flex-direction: column;
     background-color: #1D3557;
     color: #F1FAEE;
-    padding: 20px;
+    
 }
 
 #title{
@@ -70,8 +71,69 @@ button{
     justify-content: space-evenly;
 }
 
-#game{
+#playerChoice{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    padding:30px;
+    background-color: #F1FAEE;
 }
+
+#player{
+    background-color: #A8DADC;
+    display: flex;
+    padding-top: 300px;
+    flex-grow: 1;
+}
+#computer{
+    background-color: #E63946;
+    display: flex;
+    padding-top:300px;
+    flex-grow: 1;
+}
+#gameSpace{
+    display:flex;   
+}
+
+#rock{
+    margin-top: 40px;
+    margin-right:-400px
+}
+
+#paper{
+    margin-top: -40px;
+}
+
+#scissors{
+    margin-top: 40px;
+    margin-left:-400px
+}
+
+#footer{
+    background-color: #1D3557;
+    color: #F1FAEE;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:center;
+    font-size: 12px;
+    padding:6px
+}
+
+.score{
+    margin-left:2px;
+    font-size:16px;
+    color: #1D3557;
+    font-weight: bold;
+}
+.content{
+    padding-left:2px;
+    font-weight: bold;
+    color:#1D3557;
+}
+#computer .score,
+#computer .content{
+    color: #F1FAEE;
+}
+
+

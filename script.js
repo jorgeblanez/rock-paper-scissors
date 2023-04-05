@@ -34,8 +34,7 @@ function game(){
     else return alert("You lost! :/")*/
 
 }
-//Get player selection, which should be case insensitive, and validate if the
-//input was correct. Use "prompt()"
+
 
 function getPlayerChoice(){
 
@@ -80,3 +79,23 @@ function playRound(playerChoice,computerChoice){
     return alert(result);
 
 }
+
+//This function reset the scores for players to be able play again
+function resetGame(){
+    //set player score to 0
+    playerScore.classList.add('content');
+    playerScore.textContent = '0';
+    playerContainer.appendChild(playerScore);
+
+    //set computer score to 0
+    computerScore.classList.add('content');
+    computerScore.textContent = '0';
+    computerContainer.appendChild(computerScore);
+}
+
+const playerContainer = document.querySelector('#player');
+const computerContainer = document.querySelector('#computer');
+let playerScore = document.createElement('div');
+let computerScore = document.createElement('div');
+
+resetGame();
