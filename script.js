@@ -23,6 +23,32 @@ function getPlayerChoice(event){
 
 }
 
+//This function manipulates the DOM to show both player and computer choices on screen:
+function manipulateDom(player,computer){
+
+    if (player === "rock"){
+        playerImage.src = "Icons/fist.png";
+    }
+    else if (player === "paper"){
+        playerImage.src = "Icons/hand-palm.png";
+    }
+    else{
+        playerImage.src = "Icons/peace.png";
+    }
+
+    if (computer === "rock"){
+        computerImage.src = "Icons/fist.png";
+    }
+    else if (computer === "paper"){
+        computerImage.src = "Icons/hand-palm.png";
+    }
+    else{
+        computerImage.src = "Icons/peace.png";
+    }
+
+
+}
+
 //Create function to play a round of Rock Paper Scissors, 
 //that receive playerSelection and computerSelection
 //and return the result (win/lose/draw + winningSelection beats losingSelection)
@@ -30,13 +56,10 @@ function getPlayerChoice(event){
 function playRound(playerChoice,computerChoice){
     let result;
 
-    //Manipulate DOM to appear both player and computer choices
-
     if (playerChoice === computerChoice){
-        
+        result = "Draw! Try again"
     }
-
-    if (playerChoice === "rock" && computerChoice ==="scissors"){
+    else if (playerChoice === "rock" && computerChoice ==="scissors"){
         playerCount++;
         result = "You won! Rock beats Scissors!";
     }
@@ -60,37 +83,42 @@ function playRound(playerChoice,computerChoice){
         computerCount++;
         result = "You lost! Rock beats Scissors!";
     }
+    resultContainer.textContent = result;
+    playerScore.textContent ="Your Score: " + playerCount;
+    computerScore.textContent = "Computer's Score: " + computerCount;
     
-    playerScore.textContent = playerCount;
-    computerScore.textContent = computerCount;
+    manipulateDom(playerChoice,computerChoice);
 }
 
 //This function reset the scores for players to be able play again
 function resetGame(){
     //set player score to 0
     playerCount = 0;
-    playerScore.classList.add('content');
-    playerScore.textContent = playerCount;
-    playerContainer.appendChild(playerScore);
+    playerScore.textContent ="Your Score: " + playerCount;
 
     //set computer score to 0
     computerCount = 0;
-    computerScore.classList.add('content');
-    computerScore.textContent = computerCount;
-    computerContainer.appendChild(computerScore);
+    computerScore.textContent = "Computer's Score: " + computerCount;
 }
 
 function keepScore(){
-
+    
 }
 
 const playerContainer = document.querySelector('#player');
 const computerContainer = document.querySelector('#computer');
-let playerScore = document.createElement('div');
-let computerScore = document.createElement('div');
+const resultContainer = document.querySelector('#result');
+
+let playerScore = document.getElementById("playerScore");
+let computerScore = document.getElementById("computerScore");
+
+const playerImage = document.createElement("img");
+const computerImage =document.createElement("img");
+
 
 resetGame();
-
+playerContainer.appendChild(playerImage);
+computerContainer.appendChild(computerImage);
 let btns = document.querySelectorAll('#rock, #paper, #scissors');
 for(btn of btns){
     playerChoice = btn.addEventListener('click',getPlayerChoice)
@@ -99,4 +127,3 @@ for(btn of btns){
 
 
 
-;
