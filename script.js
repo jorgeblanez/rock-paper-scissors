@@ -16,27 +16,10 @@ function getComputerChoice(){
     }
 }
 
-//Create a function called game. A game should be best of 5 and the function should 
-//report who won at the end.
 
-function game(){
-    playerCount = 0;
-    computerCount = 0;
-    /*let keepGoing =true;
-    /*while (keepGoing){
-        playRound(getPlayerChoice(),getComputerChoice());
-        console.log("playerCount: " + playerCount);
-        console.log("computerCount: " + computerCount)
-
-        if (playerCount === 3 || computerCount === 3) keepGoing =false;
-    }
-    if (playerCount > computerCount) return alert("You won! :D")
-    else return alert("You lost! :/")*/
-
-}
-
-
-function getPlayerChoice(){
+function getPlayerChoice(event){
+    let playerChoice = event.target.alt;
+    playRound(playerChoice,getComputerChoice())
 
 }
 
@@ -46,10 +29,11 @@ function getPlayerChoice(){
 
 function playRound(playerChoice,computerChoice){
     let result;
-    console.log("playerChoice: " + playerChoice);
-    console.log("computerChoice: " + computerChoice);
+
+    //Manipulate DOM to appear both player and computer choices
+
     if (playerChoice === computerChoice){
-        return alert ("Draw! Try again");
+        
     }
 
     if (playerChoice === "rock" && computerChoice ==="scissors"){
@@ -76,21 +60,28 @@ function playRound(playerChoice,computerChoice){
         computerCount++;
         result = "You lost! Rock beats Scissors!";
     }
-    return alert(result);
-
+    
+    playerScore.textContent = playerCount;
+    computerScore.textContent = computerCount;
 }
 
 //This function reset the scores for players to be able play again
 function resetGame(){
     //set player score to 0
+    playerCount = 0;
     playerScore.classList.add('content');
-    playerScore.textContent = '0';
+    playerScore.textContent = playerCount;
     playerContainer.appendChild(playerScore);
 
     //set computer score to 0
+    computerCount = 0;
     computerScore.classList.add('content');
-    computerScore.textContent = '0';
+    computerScore.textContent = computerCount;
     computerContainer.appendChild(computerScore);
+}
+
+function keepScore(){
+
 }
 
 const playerContainer = document.querySelector('#player');
@@ -99,3 +90,13 @@ let playerScore = document.createElement('div');
 let computerScore = document.createElement('div');
 
 resetGame();
+
+let btns = document.querySelectorAll('#rock, #paper, #scissors');
+for(btn of btns){
+    playerChoice = btn.addEventListener('click',getPlayerChoice)
+}
+
+
+
+
+;
