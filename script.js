@@ -88,6 +88,7 @@ function playRound(playerChoice,computerChoice){
     computerScore.textContent = "Computer's Score: " + computerCount;
     
     manipulateDom(playerChoice,computerChoice);
+    keepScore(playerCount,computerCount)
 }
 
 //This function reset the scores for players to be able play again
@@ -99,10 +100,6 @@ function resetGame(){
     //set computer score to 0
     computerCount = 0;
     computerScore.textContent = "Computer's Score: " + computerCount;
-}
-
-function keepScore(){
-    
 }
 
 const playerContainer = document.querySelector('#player');
@@ -117,6 +114,8 @@ const computerImage =document.createElement("img");
 
 
 resetGame();
+
+
 playerContainer.appendChild(playerImage);
 computerContainer.appendChild(computerImage);
 let btns = document.querySelectorAll('#rock, #paper, #scissors');
